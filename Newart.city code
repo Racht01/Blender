@@ -1,28 +1,36 @@
-room.afterInit = function(){
-
+room.afterInit = function () {
   window.mistParticles = [];
 
-  var numberOfMistParticles = 250;
-  var mistHeight = 15;
+  var numberOfMistParticles = 20;
+  var mistHeight = 10;
 
-  const map = new THREE.TextureLoader().load('https://newart.city/img/special/mist-element.png'); 
+  const map = new THREE.TextureLoader().load('https://newart.city/img/special/mist-element.png');
 
-  for (counter = 0; counter < numberOfMistParticles; counter++) {   
-    var mistMaterial = new THREE.SpriteMaterial( { map: map } ); 
-    var particle = new THREE.Sprite( mistMaterial ); 
+  for (let i = 0; i < numberOfMistParticles; i++) {
+    var mistMaterial = new THREE.SpriteMaterial({
+      map: map,
+      transparent: true,
+      opacity: 0.35,
+      depthWrite: false
+    });
+
+    var particle = new THREE.Sprite(mistMaterial);
     particle.material.rotation = Math.random() * 360;
-    particle.scale.set(30,30,30);
-    particle.position.set(Math.random()*600-300, mistHeight, Math.random()*600-300);
+    particle.scale.set(120, 120, 120);
+    particle.position.set(
+      Math.random() * 600 - 300,
+      mistHeight,
+      Math.random() * 600 - 300
+    );
+
     window.scene.add(particle);
-    mistParticles.push(particle);
-  }
-
-};
-
-room.onFrame = function(){
-  var sp = mistParticles.length;
-  while(sp--) {
-    mistParticles[sp].material.rotation += 0.001;
+    window.mistParticles.push(particle);
   }
 };
 
+room.onFrame = function () {
+  var sp = window.mistParticles.length;
+  while (sp--) {
+    window.mistParticles[sp].material.rotation += 0.001;
+  }
+};
