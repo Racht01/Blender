@@ -1,34 +1,30 @@
-
 room.afterInit = function() {
-  // Find the ground mesh by name
   const ground = window.scene.getObjectByName("ground");
   if (!ground) {
     console.error("Ground not found");
     return;
   }
 
-  // Load your uploaded texture using its asset ID
-  const textureURL = nac.assets.getUrl("383780");
+  const textureURL = nac.assets.getUrl("383795");
   const loader = new THREE.TextureLoader();
 
   loader.load(textureURL, function(texture) {
-    // Make the texture tile across the ground
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(4, 4); // Adjust tiling as needed
+    texture.repeat.set(4, 4); // You can change this to 2,2 or 10,10
 
-    // Apply a new material to the ground
-    const customMaterial = new THREE.MeshStandardMaterial({
+    const material = new THREE.MeshStandardMaterial({
       map: texture,
       roughness: 1,
       metalness: 0
     });
 
-    ground.material = customMaterial;
+    ground.material = material;
     ground.material.needsUpdate = true;
 
-    console.log("Custom ground texture applied.");
+    console.log("Custom ground texture applied from asset 383795.");
   }, undefined, function(err) {
     console.error("Failed to load texture:", err);
   });
 };
+
