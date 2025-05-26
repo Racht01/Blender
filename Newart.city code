@@ -3,7 +3,7 @@ room.afterInit = function(){
   window.mistParticles = [];
 
   var numberOfMistParticles = 250;
-  var mistHeight =10;
+  var mistHeight = 15;
 
   const map = new THREE.TextureLoader().load('https://newart.city/img/special/mist-element.png'); 
 
@@ -25,3 +25,4 @@ room.onFrame = function(){
     mistParticles[sp].material.rotation += 0.001;
   }
 };
+
