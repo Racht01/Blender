@@ -26,34 +26,50 @@
             z-index: 10;
             position: fixed;
             top: 0;
-            padding: 20px 0;
-            background: rgba(0, 0, 0, 0.8);
+            padding: 0x 0;
+           
+
         }
 
-        .title {
-            color: white;
-            font-size: 24px;
-        }
+       
 
         #canvas-container {
-            width: 100%;
-            height: calc(100% - 70px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 70px;
-            overflow: hidden;
-        }
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
 
         canvas {
-            max-width: 100%;
-            max-height: 100%;
-        }
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    object-fit: cover;
+}
+        
     </style>
 </head>
 
 <body>
-    
+    <div class="controls">
+        <div class="title">Mirror Mirror</div>
+        <div class="btn-group" role="group">
+            <button id="btnToggle" class="btn btn-success">Turn On</button>
+            <button id="btnEffect" class="btn btn-warning">Infinity Effect</button>
+            <button id="btnEdge" class="btn btn-dark">Sobel Edge Detect</button>
+            <button id="btnCanny" class="btn btn-light">Canny Edge Detect</button>
+            <button id="btnFlip" class="btn btn-primary">Flip Horizontal</button>
+            <button id="btnRotate" class="btn btn-secondary">Rotate</button>
+            <button id="btnSave" class="btn btn-info">Save Picture</button>
+        </div>
+    </div>
     <div id="canvas-container">
         <canvas id="canvas"></canvas>
     </div>
@@ -62,7 +78,7 @@
             const canvas = document.getElementById('canvas');
             const context = canvas.getContext('2d');
             let videoStream = null;
-let video = document.getElementById("video"); // 
+            let video = document.createElement('video');
             let flipHorizontal = false;
             let infinityEffect = false;
             let rotationAngle = 0;
