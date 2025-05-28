@@ -53,7 +53,18 @@
 </head>
 
 <body>
-    
+    <div class="controls">
+        <div class="title">Mirror Mirror</div>
+        <div class="btn-group" role="group">
+            <button id="btnToggle" class="btn btn-success">Turn On</button>
+            <button id="btnEffect" class="btn btn-warning">Infinity Effect</button>
+            <button id="btnEdge" class="btn btn-dark">Sobel Edge Detect</button>
+            <button id="btnCanny" class="btn btn-light">Canny Edge Detect</button>
+            <button id="btnFlip" class="btn btn-primary">Flip Horizontal</button>
+            <button id="btnRotate" class="btn btn-secondary">Rotate</button>
+            <button id="btnSave" class="btn btn-info">Save Picture</button>
+        </div>
+    </div>
     <div id="canvas-container">
         <canvas id="canvas"></canvas>
     </div>
@@ -62,7 +73,7 @@
             const canvas = document.getElementById('canvas');
             const context = canvas.getContext('2d');
             let videoStream = null;
-let video = document.getElementById("video"); // 
+            let video = document.createElement('video');
             let flipHorizontal = false;
             let infinityEffect = false;
             let rotationAngle = 0;
