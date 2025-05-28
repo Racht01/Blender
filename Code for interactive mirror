@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <!-- Mirror Mirror a single page javascript web camera app by deftio -->
 <!-- See github.com/deftio/MirrorMirror for more information -->
@@ -80,19 +80,23 @@
             let videoStream = null;
             let video = document.createElement('video');
             let flipHorizontal = false;
-            let infinityEffect = false;
+            let infinityEffect = true;
             let rotationAngle = 0;
-            let edgeDetectionEnabled = false;
+            let edgeDetectionEnabled = true;
             let cannyEdgeDetectionEnabled = false;
                 navigator.mediaDevices.getUserMedia({ video: true })
-        .then(stream => {
-            videoStream = stream;
-            video.srcObject = stream;
+    .then(stream => {
+        videoStream = stream;
+        video.srcObject = stream;
+
+        video.onloadedmetadata = () => {
             video.play();
-            btnToggle.textContent = 'Turn Off';
-            btnToggle.classList.replace('btn-success', 'btn-danger');
-            draw(); // start rendering loop
-        })
+            draw(); // ✅ draw only after video has metadata (like width/height)
+        };
+
+        btnToggle.textContent = 'Turn Off';
+        btnToggle.classList.replace('btn-success', 'btn-danger');
+    })
         .catch(error => {
             console.error('Error accessing the camera: ', error);
         });
