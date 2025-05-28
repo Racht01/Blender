@@ -26,29 +26,34 @@
             z-index: 10;
             position: fixed;
             top: 0;
-            padding: 20px 0;
-            background: rgba(0, 0, 0, 0.8);
+            padding: 0x 0;
+           
+
         }
 
-        .title {
-            color: white;
-            font-size: 24px;
-        }
+       
 
         #canvas-container {
-            width: 100%;
-            height: calc(100% - 70px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 70px;
-            overflow: hidden;
-        }
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
 
         canvas {
-            max-width: 100%;
-            max-height: 100%;
-        }
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    object-fit: cover;
+}
+        
     </style>
 </head>
 
