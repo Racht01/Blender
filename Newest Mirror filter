@@ -63,7 +63,7 @@
         <div class="btn-group" role="group">
             <button id="btnToggle" class="btn btn-success">Turn On</button>
             <button id="btnEffect" class="btn btn-warning">Infinity Effect</button>
-            <button id="btnEdge" class="btn btn-dark">Sobel Edge Detect</button>
+            <button id="btnEdge" class="btn btn-dark">Are you tired</button>
             <button id="btnCanny" class="btn btn-light">Canny Edge Detect</button>
             <button id="btnFlip" class="btn btn-primary">Flip Horizontal</button>
             <button id="btnRotate" class="btn btn-secondary">Rotate</button>
@@ -84,6 +84,19 @@
             let rotationAngle = 0;
             let edgeDetectionEnabled = false;
             let cannyEdgeDetectionEnabled = false;
+                navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+            videoStream = stream;
+            video.srcObject = stream;
+            video.play();
+            btnToggle.textContent = 'Turn Off';
+            btnToggle.classList.replace('btn-success', 'btn-danger');
+            draw(); // start rendering loop
+        })
+        .catch(error => {
+            console.error('Error accessing the camera: ', error);
+        });
+
 
             const btnToggle = document.getElementById('btnToggle');
             const btnFlip = document.getElementById('btnFlip');
