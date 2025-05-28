@@ -73,7 +73,7 @@
             const canvas = document.getElementById('canvas');
             const context = canvas.getContext('2d');
             let videoStream = null;
-            let video = document.createElement('video');
+let video = document.getElementById("video"); // 
             let flipHorizontal = false;
             let infinityEffect = false;
             let rotationAngle = 0;
