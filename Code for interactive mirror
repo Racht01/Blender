@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <!-- Mirror Mirror a single page javascript web camera app by deftio -->
 <!-- See github.com/deftio/MirrorMirror for more information -->
@@ -20,16 +20,10 @@
             background: black;
         }
 
-        .controls {
-            width: 100%;
-            text-align: center;
-            z-index: 10;
-            position: fixed;
-            top: 0;
-            padding: 0x 0;
+        
            
 
-        }
+    
 
        
 
