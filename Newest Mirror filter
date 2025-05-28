@@ -53,9 +53,9 @@
 .overlay {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50;
   width: 100vw;
-  height: 100vh;
+  height: 110vh;
   background: url("Laptopoverlay.png") repeat;
 }
 
@@ -80,13 +80,7 @@
     <div class="controls">
        
         <div class="btn-group" role="group">
-            <button id="btnToggle" class="btn btn-success">Turn On</button>
-            <button id="btnEffect" class="btn btn-warning">Infinity Effect</button>
-            <button id="btnEdge" class="btn btn-dark">Are you tired</button>
-            <button id="btnCanny" class="btn btn-light">Canny Edge Detect</button>
-            <button id="btnFlip" class="btn btn-primary">Flip Horizontal</button>
-            <button id="btnRotate" class="btn btn-secondary">Rotate</button>
-            <button id="btnSave" class="btn btn-info">Save Picture</button>
+         
         </div>
     </div>
     <div id="canvas-container">
