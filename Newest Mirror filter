@@ -49,39 +49,6 @@
     padding: 0;
   filter: contrast(1.2) brightness(1.1) saturate(0.7) blur(0.8px);
 }
-
-
-
-        
-    </style>
-</head>
-#canvas-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-}
-
-
-canvas {
-    width: 100vw;
-    height: 100vh;
-    display: block;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-
 #frame-overlay {
     position: absolute;
     top: 0;
@@ -91,6 +58,12 @@ canvas {
     pointer-events: none;
     z-index: 2; 
 }
+
+
+        
+    </style>
+</head>
+
 
 <body>
     <div class="controls">
